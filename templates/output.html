@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Image Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <style>
+    .container{
+      background-color: rgb(255, 182, 193);
+    }
+    .heading_jumbotron{
+        width: 100%;
+        height: 5px;
+    }
+  </style>
+
+<div class="container">
+  <h1 class="jumbotron bg-primary">Image Prediction using Keras with Flask Web Framework</h1>
+  <br><br>
+  {% if prediction %}
+  <h3 class="jumbotron heading_jumbotron bg-primary">Your Prediction Image</h3>
+  <img src="{{img_path}}" height="400px" width="400px">
+  <br><br><br><br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Prediction Object</th>
+        <th scope="col">Accuracy of the Object</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key, value in prediction.items() %}
+     <tr>
+         <td> {{ key }} </td>
+         <td> {{ value }} %</td>
+     </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+
+</div>
+	
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
