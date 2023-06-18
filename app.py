@@ -37,7 +37,7 @@ def preprocessed_image(file):
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
-	return render_template("index.html")
+	return render_template("Image_prediction_index.html")
 
 
 @app.route("/submit", methods = ['GET', 'POST'])
@@ -49,7 +49,7 @@ def get_output():
         img_path = "static/" + new_name
         img.save(img_path)
         prediction = preprocessed_image(new_name)
-    return render_template("output.html", prediction = prediction, img_path = img_path)
+    return render_template("Image_prediction_output.html", prediction = prediction, img_path = img_path)
 
 if __name__ =='__main__':
 	app.run(debug = True)
